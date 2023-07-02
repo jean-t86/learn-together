@@ -12,13 +12,13 @@ use the image and string resources provided in the Resources section for this pr
 
 ### Final screenshot
 
-![Final screenshot](resources/images/finalScreenshot.png)
+<img src="./resources/images/finalScreenshot.png" height="300">
 
 ### UI specifications
 
 Follow this UI specification:
 
-![UI specifications](resources/images/uiSpecification.png)
+<img src="./resources/images/uiSpecification.png" height="300">
 
 1. Set the image to fill the entire screen's width.
 2. Set the first Text composable to a 24sp font size and 16dp padding (start, end, bottom, and top).
