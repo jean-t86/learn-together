@@ -12,7 +12,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen()
+                    LearnTogetherApp()
                 }
             }
         }
@@ -39,32 +39,36 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun LearnTogetherApp(modifier: Modifier = Modifier) {
+    val headerPainter = painterResource(id = R.drawable.bg_compose_background)
+    val title = stringResource(id = R.string.article_title)
+    val description = stringResource(id = R.string.article_description)
+    val body = stringResource(id = R.string.article_body)
+
     Column(modifier = modifier) {
-        HeaderImage()
+        HeaderImage(headerPainter)
         Article(
-            title = stringResource(id = R.string.article_title),
-            description = stringResource(id = R.string.article_description),
-            body = stringResource(id = R.string.article_body)
+            title = title,
+            description = description,
+            body = body
         )
     }
 }
 
 @Preview(showSystemUi = true)
 @Composable
-fun MainScreenPreview() {
+fun LearnTogetherAppPreview() {
     LearnTogetherTheme {
-        MainScreen()
+        LearnTogetherApp()
     }
 }
 
 @Composable
-fun HeaderImage(modifier: Modifier = Modifier) {
-    val headerPainter = painterResource(id = R.drawable.bg_compose_background)
+fun HeaderImage(headerPainter: Painter, modifier: Modifier = Modifier) {
     Image(
+        modifier = modifier,
         painter = headerPainter,
-        contentDescription = null,
-        contentScale = ContentScale.FillWidth
+        contentDescription = null
     )
 }
 
@@ -72,7 +76,7 @@ fun HeaderImage(modifier: Modifier = Modifier) {
 @Composable
 fun HeaderImagePreview() {
     LearnTogetherTheme {
-        HeaderImage()
+        HeaderImage(painterResource(id = R.drawable.bg_compose_background))
     }
 }
 
